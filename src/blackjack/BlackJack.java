@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package blackjack;
 
 import java.util.Scanner;
@@ -17,13 +13,13 @@ public class BlackJack{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int money;          // Amount of money the user has.
-          int bet;            // Amount user bets on a game.
-          boolean userWins;   // Did the user win the game?
+        int money;          
+          int bet;            
+          boolean userWins;  
           
           System.out.println("Welcome to the game of blackjack.");
           
-          money = 100;  // User starts with $100.
+          money = 100; 
        
           while (true) {
               System.out.println("You have " + money + " dollars.");
@@ -52,34 +48,26 @@ public class BlackJack{
           
           System.out.println("You leave with $" + money + '.');
        
-       } // end main()
+       } 
        
        
        static boolean playBlackjack() {
-             // Let the user play one game of Blackjack.
-             // Return true if the user wins, false if the user loses.
+             
     
-          GroupOfCards deck;                  // A deck of cards.  A new deck for each game.
-          Game dealerHand;   // The dealer's hand.
-          Game userHand;     // The user's hand.
+          GroupOfCards deck;               
+          Game dealerHand;  
+          Game userHand;     
           
           deck = new GroupOfCards();
           dealerHand = new Game();
           userHand = new Game();
     
-          /*  Shuffle the deck, then deal two cards to each player. */
-          
           deck.shuffle();
           dealerHand.addCard( deck.dealCard() );
           dealerHand.addCard( deck.dealCard() );
           userHand.addCard( deck.dealCard() );
           userHand.addCard( deck.dealCard() );
-          
-   
-          
-          /* Check if one of the players has Blackjack (two cards totaling to 21).
-             The player with Blackjack wins the game.  Dealer wins ties.
-          */
+        
           
           if (dealerHand.getBlackjackValue() == 21) {
                System.out.println("Dealer has the " + dealerHand.getCard(0)
@@ -101,15 +89,7 @@ public class BlackJack{
                return true;
           }
           
-          /*  If neither player has Blackjack, play the game.  First the user 
-              gets a chance to draw cards (i.e., to "Hit").  The while loop ends 
-              when the user chooses to "Stand".  If the user goes over 21,
-              the user loses immediately.
-          */
-          
           while (true) {
-              
-               /* Display user's cards, and let user decide to Hit or Stand. */
     
                System.out.println();
                System.out.println();
@@ -122,23 +102,18 @@ public class BlackJack{
                System.out.println();
                System.out.println("Hit (H) or Stand (S)? ");
                Scanner s1 = new Scanner(System.in);
-               char userAction;  // User's response, 'H' or 'S'.
+               char userAction; 
                do {
                   userAction = Character.toUpperCase( s1.next().charAt(0));
                   if (userAction != 'H' && userAction != 'S')
                      System.out.println("Please respond H or S:  ");
                } while (userAction != 'H' && userAction != 'S');
     
-               /* If the user Hits, the user gets a card.  If the user Stands,
-                  the loop ends (and it's the dealer's turn to draw cards).
-               */
-    
                if ( userAction == 'S' ) {
-                       // Loop ends; user is done taking cards.
+                      
                    break;
                }
-               else {  // userAction is 'H'.  Give the user a card.  
-                       // If the user goes over 21, the user loses.
+               else {  
                    Card newCard = deck.dealCard();
                    userHand.addCard(newCard);
                    System.out.println();
@@ -154,12 +129,7 @@ public class BlackJack{
                    }
                }
                
-          } // end while loop
-          
-          /* If we get to this point, the user has Stood with 21 or less.  Now, it's
-             the dealer's chance to draw.  Dealer draws cards until the dealer's
-             total is > 16.  If dealer goes over 21, the dealer loses.
-          */
+          } 
     
           System.out.println();
           System.out.println("User stands.");
@@ -177,9 +147,6 @@ public class BlackJack{
              }
           }
           System.out.println("Dealer's total is " + dealerHand.getBlackjackValue());
-          
-          /* If we get to this point, both players have 21 or less.  We
-             can determine the winner by comparing the values of their hands. */
           
           System.out.println();
           if (dealerHand.getBlackjackValue() == userHand.getBlackjackValue()) {
