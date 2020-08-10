@@ -7,7 +7,7 @@ package blackjack;
 
 /**
  *
- * @author Nikhil
+ * @author Gursimran
  */
 public class Card {
     public final static int SPADES = 0,       

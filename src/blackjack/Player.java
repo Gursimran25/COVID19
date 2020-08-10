@@ -8,7 +8,7 @@ import java.util.Vector;
 
 /**
  *
- * @author Nikhil
+ * @author Gursimran
  */
 public class Player {
     private Vector hand;   

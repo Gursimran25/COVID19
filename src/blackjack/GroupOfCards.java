@@ -7,7 +7,7 @@ package blackjack;
 
 /**
  *
- * @author Nikhil
+ * @author Gursimran
  */
 public class GroupOfCards {
      private Card[] deck;  

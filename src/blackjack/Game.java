@@ -7,7 +7,7 @@ package blackjack;
 
 /**
  *
- * @author Nikhil
+ * @author Gursimran
  */
 public class Game extends Player {
     public int getBlackjackValue() {

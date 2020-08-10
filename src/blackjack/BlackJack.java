@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Nikhil
+ * @author Gursimran 
  */
 public class BlackJack{
 
